@@ -1,72 +1,246 @@
-import {View, Text, Button} from 'react-native';
+// // import {View, Text, Button} from 'react-native';
+// // import React from 'react';
+// // import {NavigationContainer} from '@react-navigation/native';
+// // import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// // import Home from './src/navigation-screens/Home';
+// // import About from './src/navigation-screens/About';
+// // import Login from './src/navigation-screens/Login';
+// // import MyHeader from './src/navigation-screens/MyHeader';
+
+// // const Stack = createNativeStackNavigator();
+// // const App = () => {
+// //   const headerTitle = () => (
+// //     <Button title="Go to Home" onPress={() => alert('Go to Home')} />
+// //   );
+// //   return (
+// //     <NavigationContainer>
+// //       <Stack.Navigator
+// //         screenOptions={{
+// //           headerStyle: {backgroundColor: '#f4511e'},
+// //           headerTintColor: '#fff',
+// //           headerTitleStyle: {
+// //             fontWeight: 'bold',
+// //             fontSize: 20,
+// //           },
+// //           headerTitleAlign: 'center',
+// //           headerShown: true,
+// //           contentStyle: {
+// //             backgroundColor: 'red',
+// //           },
+// //         }}>
+// //         <Stack.Screen
+// //           name="Header"
+// //           component={MyHeader}
+// //           options={{
+// //             title: '',
+// //             // headerTitle: () => (
+// //             //   <Button title="Go to Home" onPress={() => alert('Go to Home')} />
+// //             // ),
+// //             // headerRight: () => (
+// //             //   <Button title="Go to Home" onPress={() => alert('Go to Home')} />
+// //             // ),
+// //             headerTitle: headerTitle,
+// //           }}
+// //         />
+// //         <Stack.Screen
+// //           name="Login"
+// //           component={Login}
+// //           // options={{
+// //           //   title: 'Login Screen',
+// //           //   headerStyle: {backgroundColor: '#f4511e'},
+// //           //   headerTintColor: '#fff',
+// //           //   headerTitleStyle: {
+// //           //     fontWeight: 'bold',
+// //           //     fontSize: 20,
+// //           //   },
+// //           //   headerTitleAlign: 'center',
+// //           // }}
+// //         />
+// //         <Stack.Screen
+// //           name="Home"
+// //           component={Home}
+// //           options={{headerShown: false}}
+// //         />
+// //         <Stack.Screen name="About" component={About} />
+// //       </Stack.Navigator>
+// //     </NavigationContainer>
+// //   );
+// // };
+
+// // export default App;
+// import 'react-native-gesture-handler';
+// import {View, Text, Button} from 'react-native';
+// import React from 'react';
+// import {createDrawerNavigator} from '@react-navigation/drawer';
+// import {NavigationContainer} from '@react-navigation/native';
+// import 'react-native-reanimated';
+
+// const Drawer = createDrawerNavigator();
+
+// const HomeScreen = ({navigation}) => {
+//   <View>
+//     <Text>Home Screen</Text>
+//     <Button title="Open Drawer" onPress={() => navigation.openDrawer()} />
+//   </View>;
+// };
+// const Profile = ({navigation}) => {
+//   <View>
+//     <Text>Profile Screen</Text>
+//     <Button title="Open Drawer" onPress={() => navigation.openDrawer()} />
+//   </View>;
+// };
+// const Setting = ({navigation}) => {
+//   <View>
+//     <Text>Setting Screen</Text>
+//     <Button title="Open Drawer" onPress={() => navigation.openDrawer()} />
+//   </View>;
+// };
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator
+//         screenOptions={{
+//           drawerStyle: {
+//             backgroundColor: '#e6e6e6',
+//             width: 240,
+//           },
+//           drawerLabelStyle: {
+//             fontSize: 25,
+//             color: '#333',
+//           },
+//           headerStyle: {
+//             backgroundColor: '#6200EE',
+//           },
+//           headerTintColor: '#fff',
+//           headerTitleAlign: 'center',
+//         }}>
+//         <Drawer.Screen name="Home" component={HomeScreen} />
+//         <Drawer.Screen name="Profile" component={Profile} />
+//         <Drawer.Screen name="Setting" component={Setting} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;
+
+// import {View, Text} from 'react-native';
+// import {NavigationContainer} from '@react-navigation/native';
+// import React from 'react';
+// import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+// import Home from './src/navigation-screens/Home';
+// import Icon from 'react-native-vector-icons/Ionicons';
+
+// const Tab = createBottomTabNavigator();
+
+// const HomeScreen = () => {
+//   return (
+//     <View>
+//       <Text>HomeScreen</Text>
+//     </View>
+//   );
+// };
+// const AboutScreen = () => {
+//   return (
+//     <View>
+//       <Text>AboutScreen</Text>
+//     </View>
+//   );
+// };
+// const ProfileScreen = () => {
+//   return (
+//     <View>
+//       <Text>ProfileScreen</Text>
+//     </View>
+//   );
+// };
+
+// const getTabBarIcon = (routeName, focused, color, size) => {
+//   let iconName;
+
+//   if (routeName === 'Home') {
+//     iconName = focused ? 'home' : 'home-outline';
+//   } else if (routeName === 'About') {
+//     iconName = focused ? 'information-circle' : 'information-circle-outline';
+//   } else if (routeName === 'Profile') {
+//     iconName = focused ? 'person' : 'person-outline';
+//   }
+
+//   return <Icon name={iconName} size={size} color={color} />;
+// };
+
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Tab.Navigator
+//         screenOptions={({route}) => ({
+//           headerShown: false, // 👈 hide header
+//           tabBarIcon: ({focused, color, size}) =>
+//             getTabBarIcon(route.name, focused, color, size),
+//           tabBarActiveTintColor: '#007bff',
+//           tabBarInactiveTintColor: '#ccc',
+//           tabBarStyle: {
+//             paddingBottom: 5,
+//             height: 60,
+//           },
+//         })}>
+//         <Tab.Screen name="Home" component={HomeScreen} />
+//         <Tab.Screen name="About" component={AboutScreen} />
+//         <Tab.Screen name="Profile" component={ProfileScreen} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;
+
+// import {View, Text} from 'react-native';
+// import React from 'react';
+// import {NavigationContainer} from '@react-navigation/native';
+// import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
+// const HomeScreen = () => {
+//   return (
+//     <View>
+//       <Text>HomeScreen</Text>
+//     </View>
+//   );
+// };
+// const AboutScreen = () => {
+//   return (
+//     <View>
+//       <Text>AboutScreen</Text>
+//     </View>
+//   );
+// };
+// const ProfileScreen = () => {
+//   return (
+//     <View>
+//       <Text>ProfileScreen</Text>
+//     </View>
+//   );
+// };
+// const Tab = createMaterialTopTabNavigator();
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Tab.Navigator>
+//         <Tab.Screen name="Home" component={HomeScreen} />
+//         <Tab.Screen name="Profile" component={ProfileScreen} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;
+
+import {View, Text} from 'react-native';
 import React from 'react';
-import First from './src/components/First';
-import Jsx from './src/components/Jsx';
-import OnPress from './src/components/OnPress';
-import UseStateHook from './src/components/UseStateHook';
-import Props from './src/components/Props';
-import InputText from './src/components/InputText';
-import Styling from './src/components/Styling';
-import FlatListScreen from './src/components/FlatListScreen';
-import SectionList from './src/components/SectionList';
-import LoginForm from './src/components/LoginForm';
-import ContactScreenList from './src/screens/Contact/ContactScreenList';
-import Grid from './src/components/Grid';
-import ClassComponents from './src/components/ClassComponents';
-import Useeffect from './src/components/Useeffect';
-import UseeffectUnmountingPhase from './src/components/UseeffectUnmountingPhase';
-import StyleWithButton from './src/components/StyleWithButton';
-import Loader from './src/components/Loader';
-import PressableButton from './src/components/PressableButton';
-import StatusBarEx from './src/components/StatusBarEx';
-import UseRefHook from './src/components/UseRefHook';
-import DialogBox from './src/components/DialogBox';
-import AlertExample from './src/components/AlertExample';
-import Get_Api from './src/components/Get_Api';
-import POST_API from './src/components/POST_API';
-import PUT_API from './src/components/PUT_API';
-import PATCH_API from './src/components/PATCH_API';
-import DELETE_API from './src/components/DELETE_API';
-import GET_API_LIST from './src/components/GET_API_LIST';
-import PlatformEx from './src/components/PlatformEx';
-import Search from './src/components/Search';
 
 const App = () => {
   return (
     <View>
-      {/* <Text style={{fontSize: 30}}>React Naitve App Developer</Text>
-      <Text style={{fontSize: 30, color: 'red'}}>Kapil Kumawat</Text>
-      <Button title="Press Here" />
-      <First /> */}
-      {/* <Jsx /> */}
-      {/* <OnPress /> */}
-      {/* <UseStateHook /> */}
-      {/* <Props /> */}
-      {/* <InputText /> */}
-      {/* <Styling /> */}
-      {/* <FlatListScreen /> */}
-      {/* <SectionList /> */}
-      {/* <LoginForm /> */}
-      {/* <ContactScreenList /> */}
-      {/* <Grid /> */}
-      {/* <ClassComponents /> */}
-      {/* <Useeffect />  */}
-      {/* <UseeffectUnmountingPhase /> */}
-      {/* <StyleWithButton /> */}
-      {/* <Loader /> */}
-      {/* <PressableButton /> */}
-      {/* <StatusBarEx /> */}
-      {/* <UseRefHook /> */}
-      {/* <DialogBox /> */}
-      {/* <AlertExample />   */}
-      {/* <Get_Api /> */}
-      {/* <POST_API /> */}
-      {/* <PUT_API /> */}
-      {/* <PATCH_API /> */}
-      {/* <DELETE_API /> */}
-      {/* <GET_API_LIST /> */}
-      {/* <PlatformEx /> */}
-      {/* <Search /> */}
+      <Text>App</Text>
     </View>
   );
 };
